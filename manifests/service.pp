@@ -15,13 +15,13 @@ class rhcs7::service
   service { 'corosync':
     ensure  => running,
     enable  => true,
-    require => Package[$rhcs7::packages::rhcs7_packages],
+    require => Service['pcsd'],
   }
 
   service { 'pacemaker':
     ensure  => running,
     enable  => true,
-    require => Package[$rhcs7::packages::rhcs7_packages],
+    require => Service['corosync'],
   }
 
 }
