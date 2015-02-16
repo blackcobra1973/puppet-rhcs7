@@ -15,7 +15,7 @@ class rhcs7::service
   service { 'corosync':
     ensure  => running,
     enable  => true,
-    require => Service['pcsd'],
+    require => File['corosync.conf'],
   }
 
   service { 'pacemaker':
